@@ -634,15 +634,6 @@ connectingModal userLanguage maybeSelectedProvider ({ chooseWalletState } as mod
                     )
 
                 Just Tally ->
-<<<<<<< HEAD
-                    if model.providerType == EthProviderInfo.Tally  then
-                        (Translations.unlock_tally_wallet userLanguage
-                        ,Translations.click_extension userLanguage)
-
-                    else
-                        (Translations.decline_unlock_tally_wallet userLanguage
-                        ,Translations.click_tally_extension userLanguage)
-=======
                     if model.providerType == EthProviderInfo.Tally then
                         ( Translations.unlock_tally_wallet userLanguage
                         , Translations.click_extension userLanguage
@@ -652,7 +643,6 @@ connectingModal userLanguage maybeSelectedProvider ({ chooseWalletState } as mod
                         ( Translations.decline_unlock_tally_wallet userLanguage
                         , Translations.click_tally_extension userLanguage
                         )
->>>>>>> 75fa6c7a1515722ee788a585836ccc7407dd7598
 
                 _ ->
                     ( Translations.unlock_wallet userLanguage
