@@ -582,24 +582,14 @@ chooseWalletView userLanguage isCompoundChain ({ chooseWalletState } as model) =
                          ]
                             ++ headerDescriptions
                             ++ [ div [ class "connect-choices" ]
-<<<<<<< HEAD
-                                     (
-                                           [ connectItemView userLanguage isCompoundChain Metamask]
-                                        ++ lineDivider   
-=======
                                     ([ connectItemView userLanguage isCompoundChain Metamask ]
                                         ++ lineDivider
->>>>>>> 75fa6c7a1515722ee788a585836ccc7407dd7598
                                         ++ ledgerItem
                                         ++ [ connectItemView userLanguage isCompoundChain WalletConnect
                                            ]
                                         ++ coinbaseWalletItem
-<<<<<<< HEAD
-                                        ++  [ connectItemView userLanguage isCompoundChain Tally]
-=======
                                         ++ lineDivider
                                         ++ [ connectItemView userLanguage isCompoundChain Tally ]
->>>>>>> 75fa6c7a1515722ee788a585836ccc7407dd7598
                                     )
                                ]
                             ++ [ termsView userLanguage isCompoundChain ]
