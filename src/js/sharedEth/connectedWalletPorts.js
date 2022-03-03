@@ -103,6 +103,8 @@ async function connectToTrxProvider(
       break;
   }
 
+  console.log('out provider' )
+  console.log(eth )
   if (establishWithoutAccount || !!account) {
     // If we didn't prompt an auth dialog, don't store this as a user choice
     if (!disallowAuthDialog) {
