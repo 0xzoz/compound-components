@@ -89,7 +89,6 @@ async function connectToTrxProvider(
       ({ networkId, account, ethereum } = await connectWeb3(eth, globEthereum, disallowAuthDialog));
       break;
     case PROVIDER_TYPE_TALLY:
-      console.log('connecting tally')
         ({ networkId, account, ethereum } = await connectTally(eth, globEthereum, disallowAuthDialog));
         break;
     case PROVIDER_TYPE_SHOW_ACCOUNT:
