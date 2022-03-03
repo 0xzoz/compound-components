@@ -126,7 +126,8 @@ function subscribeToTrxProviderChanges(app, eth, globEthereum) {
     async ({ newProviderType, ledgerDerivationPath, ledgerWalletConnectRopsten }) => {
       subscribeToAccountChanges(app, globEthereum);
       subscribeToNetworkChanges(app, eth, globEthereum);
-
+      console.log('subscribe')
+      console.log(newProviderType)
       const desiredNetworkId = ledgerWalletConnectRopsten ? 3 : 1;
       await connectToTrxProvider(
         app,
