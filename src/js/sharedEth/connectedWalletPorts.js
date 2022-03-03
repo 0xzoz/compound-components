@@ -85,9 +85,11 @@ async function connectToTrxProvider(
       ({ networkId, account, ethereum } = await connectWalletLink(eth, disallowAuthDialog));
       break;
     case PROVIDER_TYPE_WEB3:
+      console.log('connecting mm')
       ({ networkId, account, ethereum } = await connectWeb3(eth, globEthereum, disallowAuthDialog));
       break;
     case PROVIDER_TYPE_TALLY:
+      console.log('connecting tally')
         ({ networkId, account, ethereum } = await connectTally(eth, globEthereum, disallowAuthDialog));
         break;
     case PROVIDER_TYPE_SHOW_ACCOUNT:
@@ -107,7 +109,8 @@ async function connectToTrxProvider(
     if (!disallowAuthDialog) {
       storage('chosenProvider').set(newProviderType);
     }
-
+    console.log('in provider' )
+    console.log(eth )
     establishConnection(app, eth, networkId, account, ethereum, newProviderType);
 
     return true;
