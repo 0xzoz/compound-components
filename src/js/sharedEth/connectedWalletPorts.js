@@ -1,4 +1,4 @@
-import { shouldAutoConnect } from './utils';
+import { providerType,shouldAutoConnect } from './utils';
 import { getAccounts, getLedgerAddressAndBalance, getNetworkId, makeEth, setNetworkId } from './eth';
 import {
   connectLedger,
@@ -11,8 +11,6 @@ import {
 } from './connectors';
 import { toScaledDecimal } from '../sharedJs/math';
 import storage from '../sharedJs/storage';
-import { providerType} from './utils';
-
 
 const ETH_DECIMALS = 18;
 
@@ -169,9 +167,9 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
 
       // We'll try to set to the user's last chosen provider, otherwise
       // defaulting to Web3.
-      let providerTypeId = providerType(globEthereum);  //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
-      console.log('get storage')
-      console.log(providerTypeId)
+      console.log('provide change')
+      console.log(Number(providerType(globEthereum)))
+      let providerTypeId = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
       let connected = await connectToTrxProvider(app, eth, globEthereum, providerTypeId, '', true);
 
       if (!connected) {
