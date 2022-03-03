@@ -106,6 +106,10 @@ async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnec
 
     let trxProvider = ethereum;
     console.log('1')
+    console.log('disallowAuthDialog');
+    console.log(disallowAuthDialog);
+    console.log('isAutoConnect');
+    console.log(isAutoConnect);
 
     if (disallowAuthDialog && (await requiresAuthDialog(ethereum))) {
       return {
