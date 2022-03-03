@@ -71,7 +71,8 @@ async function connectToTrxProvider(
 
   let networkId, account, ethereum;
   let establishWithoutAccount = false;
-
+  console.log('newProviderType')
+  console.log(newProviderType)
   switch (newProviderType) {
     case PROVIDER_TYPE_LEDGER:
       ({ networkId, account, ethereum } = await connectLedger(
@@ -85,7 +86,6 @@ async function connectToTrxProvider(
       ({ networkId, account, ethereum } = await connectWalletLink(eth, disallowAuthDialog));
       break;
     case PROVIDER_TYPE_WEB3:
-      console.log('connecting mm')
       ({ networkId, account, ethereum } = await connectWeb3(eth, globEthereum, disallowAuthDialog));
       break;
     case PROVIDER_TYPE_TALLY:
