@@ -108,6 +108,8 @@ async function connectToTrxProvider(
   if (establishWithoutAccount || !!account) {
     // If we didn't prompt an auth dialog, don't store this as a user choice
     if (!disallowAuthDialog) {
+      console.log('set storage' )
+      console.log(eth )
       storage('chosenProvider').set(newProviderType);
     }
     console.log('in provider' )
@@ -166,6 +168,8 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       // We'll try to set to the user's last chosen provider, otherwise
       // defaulting to Web3.
       let providerType = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
+      console.log('get storage')
+      console.log(providerType)
       let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', true);
 
       if (!connected) {
