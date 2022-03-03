@@ -362,6 +362,9 @@ function withGasLimitFromPayload(web3Eth, trxPayload) {
 }
 
 function withWeb3Eth(eth) {
+  console.log('eth data');
+  console.log(eth.dataEth);
+
   if (eth.dataEth) {
     return Promise.resolve(eth.dataEth);
   } else {
