@@ -446,6 +446,10 @@ function setNewTrxProvider(eth, newTrxProvider, showAccount, showNetwork) {
 
 function setNetworkId(eth, networkId) {
   const targetNetworkName = eth.networkIdMap[networkId];
+  console.log('target name')
+  console.log(targetNetworkName)
+  console.log('dataProviders')
+  console.log(eth.dataProviders[targetNetworkName])
   if (targetNetworkName && eth.dataProviders[targetNetworkName]) {
     // TODO: This?
     eth.dataEth = new Eth(eth.dataProviders[targetNetworkName]);
