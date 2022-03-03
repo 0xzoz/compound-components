@@ -11,7 +11,7 @@ import {
 } from './connectors';
 import { toScaledDecimal } from '../sharedJs/math';
 import storage from '../sharedJs/storage';
-import { providerType} from '../../../src/js/sharedEth/utils';
+import { providerType} from './utils';
 
 
 const ETH_DECIMALS = 18;
@@ -169,10 +169,10 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
 
       // We'll try to set to the user's last chosen provider, otherwise
       // defaulting to Web3.
-      let providerType = providerType(globEthereum);  //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
+      let providerTypeId = providerType(globEthereum);  //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
       console.log('get storage')
-      console.log(providerType)
-      let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', true);
+      console.log(providerTypeId)
+      let connected = await connectToTrxProvider(app, eth, globEthereum, providerTypeId, '', true);
 
       if (!connected) {
         // Otherwise, let's connect to mainnet to show numbers
@@ -216,10 +216,10 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
   });
 }
 
-async function establishConnection(app, eth, networkId, account, ethereum, providerType) {
+async function establishConnection(app, eth, networkId, account, ethereum, providerTypeId) {
   app.ports.giveNetworkPort.send({ network: networkId });
   app.ports.giveAccountWeb3Port.send({ account });
-  app.ports.giveTrxProviderTypePort.send({ providerType });
+  app.ports.giveTrxProviderTypePort.send({ providerTypeId });
   console.log('getting connection')
   console.log(eth)
   await setNetworkId(eth, networkId);
