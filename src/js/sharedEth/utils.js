@@ -61,14 +61,6 @@ function providerType(provider) {
   }
 }
 
-const PROVIDER_TYPE_NONE = 0;
-const PROVIDER_TYPE_LEDGER = 1;
-const PROVIDER_TYPE_WALLET_LINK = 2;
-const PROVIDER_TYPE_WEB3 = 3;
-const PROVIDER_TYPE_SHOW_ACCOUNT = 3;
-const PROVIDER_TYPE_WALLET_CONNECT = 4;
-const PROVIDER_TYPE_TALLY = 5;
-
 function providerTypeId(provider) {
   if (provider === undefined || provider == null) {
     return 3;
