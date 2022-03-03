@@ -87,9 +87,9 @@ async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConn
 }
 
 async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
-  console.log('connecting tally')
-  if (ethereum.isTally) {
-    console.log('returning tally')
+  console.log('connecting mm')
+  if (ethereum && !ethereum.isTally ) {
+    console.log('returning mm')
 
     return await connectWeb3Helper(eth, ethereum, disallowAuthDialog,isAutoConnect);
   } else {
@@ -99,9 +99,22 @@ async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoCon
       ethereum: null,
     };
   }
+
+  // console.log('connecting tally')
+  // if (ethereum.isTally) {
+  //   console.log('returning tally')
+
+  //   return await connectWeb3Helper(eth, ethereum, disallowAuthDialog,isAutoConnect);
+  // } else {
+  //   return {
+  //     networkId: null,
+  //     account: null,
+  //     ethereum: null,
+  //   };
+  // }
 }
 
-async function connectWeb3Helper(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
+async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnect) {
 
     let trxProvider = ethereum;
 
