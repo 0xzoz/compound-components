@@ -148,6 +148,8 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       // We have something we think is a Web3-only browser, e.g. imToken,
       // so let's just force a connection.
       let { networkId, account, ethereum } = await connectWeb3(eth, globEthereum, false, true);
+      console.log('should be connected')
+      console.log(eth)
       await establishConnection(app, eth, networkId, account, ethereum, PROVIDER_TYPE_WEB3);
     } else {
       // If we are not in a Web3-only browser, then we'll see if there's
@@ -163,6 +165,8 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
 
       if (!connected) {
         // Otherwise, let's connect to mainnet to show numbers
+        console.log('not connected')
+        console.log(eth)
         establishConnection(app, eth, 1, null, null, PROVIDER_TYPE_NONE);
 
         if (!storage('skipConnectModal').get(false) && showProvider) {
@@ -205,6 +209,8 @@ async function establishConnection(app, eth, networkId, account, ethereum, provi
   app.ports.giveNetworkPort.send({ network: networkId });
   app.ports.giveAccountWeb3Port.send({ account });
   app.ports.giveTrxProviderTypePort.send({ providerType });
+  console.log('getting connection')
+  console.log(eth)
   await setNetworkId(eth, networkId);
 
   subscribeToAccountChanges(app, ethereum);
