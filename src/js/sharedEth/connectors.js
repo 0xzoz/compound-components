@@ -105,6 +105,7 @@ async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoCon
 async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnect) {
 
     let trxProvider = ethereum;
+    console.log('1')
 
     if (disallowAuthDialog && (await requiresAuthDialog(ethereum))) {
       return {
@@ -113,21 +114,29 @@ async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnec
         ethereum: null,
       };
     }
+    console.log('2')
 
     //TODO: This is going to change in the future with EIP-1193
     if (!isAutoConnect) {
+      console.log('3')
+
       ethereum.request({ method: 'eth_requestAccounts' });
+
     }
+    console.log('4')
 
     setNewTrxProvider(eth, trxProvider);
+    console.log('5')
 
     let [account, _] = await getAccounts(eth);
+    console.log('6')
 
     let networkIdStr = await getNetworkId(eth);
     let networkId = parseInt(networkIdStr);
     if (networkId === NaN) {
       networkId = null;
     }
+    console.log('7')
 
     return { networkId, account, ethereum };
   
