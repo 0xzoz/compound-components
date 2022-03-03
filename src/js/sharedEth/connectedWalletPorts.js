@@ -11,6 +11,8 @@ import {
 } from './connectors';
 import { toScaledDecimal } from '../sharedJs/math';
 import storage from '../sharedJs/storage';
+import { providerType} from '../../../src/js/sharedEth/utils';
+
 
 const ETH_DECIMALS = 18;
 
@@ -167,7 +169,7 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
 
       // We'll try to set to the user's last chosen provider, otherwise
       // defaulting to Web3.
-      let providerType = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
+      let providerType = providerType(globEthereum);  //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
       console.log('get storage')
       console.log(providerType)
       let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', true);
