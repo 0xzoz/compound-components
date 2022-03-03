@@ -1,4 +1,4 @@
-import { providerType,shouldAutoConnect } from './utils';
+import { providerTypeId,shouldAutoConnect } from './utils';
 import { getAccounts, getLedgerAddressAndBalance, getNetworkId, makeEth, setNetworkId } from './eth';
 import {
   connectLedger,
@@ -168,9 +168,9 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       // We'll try to set to the user's last chosen provider, otherwise
       // defaulting to Web3.
       console.log('provide change')
-      console.log(providerType(globEthereum))
+      console.log(providerTypeId(globEthereum))
       console.log('how')
-      let providerTypeId = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
+      let providerType = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
       let connected = await connectToTrxProvider(app, eth, globEthereum, providerTypeId, '', true);
 
       if (!connected) {
@@ -215,10 +215,10 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
   });
 }
 
-async function establishConnection(app, eth, networkId, account, ethereum, providerTypeId) {
+async function establishConnection(app, eth, networkId, account, ethereum, providerType) {
   app.ports.giveNetworkPort.send({ network: networkId });
   app.ports.giveAccountWeb3Port.send({ account });
-  app.ports.giveTrxProviderTypePort.send({ providerTypeId });
+  app.ports.giveTrxProviderTypePort.send({ providerType });
   console.log('getting connection')
   console.log(eth)
   await setNetworkId(eth, networkId);
