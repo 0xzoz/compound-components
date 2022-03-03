@@ -6,7 +6,7 @@ const PROVIDER_TYPE_META_MASK = 'meta_mask';
 const PROVIDER_TYPE_META_MASK_MOBILE = 'meta_mask_mobile';
 const PROVIDER_TYPE_OTHER = 'other';
 
-const NON_AUTOCONNECT_PROVIDERS = [PROVIDER_TYPE_NONE, PROVIDER_TYPE_META_MASK];
+const NON_AUTOCONNECT_PROVIDERS = [PROVIDER_TYPE_NONE, PROVIDER_TYPE_META_MASK, PROVIDER_TYPE_TALLY ];
 
 function reverseObject(obj) {
   return Object.keys(obj).reduce((acc, key) => {
