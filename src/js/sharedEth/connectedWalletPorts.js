@@ -169,6 +169,7 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       // defaulting to Web3.
       console.log('provide change')
       console.log(providerType(globEthereum))
+      console.log('how')
       let providerTypeId = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
       let connected = await connectToTrxProvider(app, eth, globEthereum, providerTypeId, '', true);
 
