@@ -423,8 +423,11 @@ async function setLedgerProvider(eth, networkId, ledgerDerivationPath) {
 }
 
 function setNewTrxProvider(eth, newTrxProvider, showAccount, showNetwork) {
+  console.log('10')
   if (newTrxProvider != null) {
+    console.log('11')
     if (newTrxProvider.setMaxListeners) {
+      console.log('12')
       newTrxProvider.setMaxListeners(30);
     }
 
@@ -434,7 +437,9 @@ function setNewTrxProvider(eth, newTrxProvider, showAccount, showNetwork) {
   } else {
     eth.trxEth = null;
   }
-
+  console.log('13')
+  console.log('newTrxProvider')
+  console.log(newTrxProvider)
   // Set a show acocunt if given
   if (showAccount) {
     eth.showAccount = showAccount;
