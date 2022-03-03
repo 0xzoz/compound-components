@@ -163,6 +163,7 @@ export {
   log,
   networkFromId,
   providerType,
+  providerTypeId,
   PROVIDER_TYPE_NONE,
   PROVIDER_TYPE_COINBASE_WALLET,
   PROVIDER_TYPE_IM_TOKEN,
