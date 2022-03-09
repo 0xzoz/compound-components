@@ -506,20 +506,17 @@ async function getBlockNumber(eth) {
 }
 
 async function getAccounts(eth) {
-  console.log('getaccs');
-  var low =  withTrxWeb3(
-    eth,
-    (trxEth) => trxEth.getAccounts(),
-    () => (eth.showAccount ? [eth.showAccount] : [])
-  )
-  console.log(low)
-  console.log('getaccs2');
-
+  
+  try{
   return withTrxWeb3(
     eth,
     (trxEth) => trxEth.getAccounts(),
     () => (eth.showAccount ? [eth.showAccount] : [])
   );
+  }catch(e){
+
+    return false;
+  }
 }
 
 async function getTransaction(eth, trxHash) {

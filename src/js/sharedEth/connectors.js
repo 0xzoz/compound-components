@@ -137,7 +137,7 @@ async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnec
 
     setNewTrxProvider(eth, trxProvider);
     console.log('5')
-
+    
     let [account, _] = await getAccounts(eth);
     console.log('6')
 
