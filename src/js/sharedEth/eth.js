@@ -386,6 +386,7 @@ function withTrxWeb3(eth, fnTrxWeb3, fnEls) {
     console.log('ethtrx3')
     eth.trxEth.trxPromise = res;
     console.log('ethtrx4')
+    console.log(res)
     return res;
   } else {
     console.log('ethtrx5')
@@ -506,11 +507,12 @@ async function getBlockNumber(eth) {
 
 async function getAccounts(eth) {
   console.log('getaccs');
-  console.log( withTrxWeb3(
+  var low =  withTrxWeb3(
     eth,
     (trxEth) => trxEth.getAccounts(),
     () => (eth.showAccount ? [eth.showAccount] : [])
-  ));
+  )
+  console.log(low)
   console.log('getaccs2');
 
   return withTrxWeb3(
