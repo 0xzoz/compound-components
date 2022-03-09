@@ -394,6 +394,7 @@ function withTrxWeb3(eth, fnTrxWeb3, fnEls) {
     return fnEls();
   }
 }catch(e){
+  console.log('error in withTrx')
   console.log(e);
 }
 }
@@ -512,16 +513,19 @@ async function getBlockNumber(eth) {
 async function getAccounts(eth) {
   
   try{
+    console.log('get accounts1')
 
-  let trxWeb3 = withTrxWeb3(
+  let trxWeb3 = await withTrxWeb3(
     eth,
     (trxEth) => trxEth.getAccounts(),
     () => (eth.showAccount ? [eth.showAccount] : [])
   )
+  console.log('get accounts2')
 
   return trxWeb3;
-  
+
   }catch(e){
+    console.log('error in getAccounts')
     console.log(e)
     return false;
   }
