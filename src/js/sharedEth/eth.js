@@ -367,9 +367,12 @@ function withWeb3Eth(eth) {
   console.log(eth.dataEth);
 
   if (eth.dataEth) {
+    console.log('got data eth')
     return Promise.resolve(eth.dataEth);
   } else {
     return new Promise((resolve, reject) => {
+      console.log('no data eth');
+      console.log(resolve)
       callProviderPromises.push(resolve);
     });
   }
