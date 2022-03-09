@@ -379,11 +379,16 @@ function withWeb3Eth(eth) {
 }
 
 function withTrxWeb3(eth, fnTrxWeb3, fnEls) {
+  console.log('ethtrx1')
   if (eth.trxEth) {
+    console.log('ethtrx2')
     let res = fnTrxWeb3(eth.trxEth, eth.trxEth.trxPromise);
+    console.log('ethtrx3')
     eth.trxEth.trxPromise = res;
+    console.log('ethtrx4')
     return res;
   } else {
+    console.log('ethtrx5')
     return fnEls();
   }
 }
@@ -500,6 +505,14 @@ async function getBlockNumber(eth) {
 }
 
 async function getAccounts(eth) {
+  console.log('getaccs');
+  console.log( withTrxWeb3(
+    eth,
+    (trxEth) => trxEth.getAccounts(),
+    () => (eth.showAccount ? [eth.showAccount] : [])
+  ));
+  console.log('getaccs2');
+
   return withTrxWeb3(
     eth,
     (trxEth) => trxEth.getAccounts(),
