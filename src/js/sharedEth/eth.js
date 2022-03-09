@@ -499,7 +499,7 @@ async function getNetworkId(eth) {
     return networkId;
 
   }catch(e){
-    console.log('error in getNetworkId)
+    console.log('error in getNetworkId')
     console.log(e)
     return eth.defaultNetworkId;
 
