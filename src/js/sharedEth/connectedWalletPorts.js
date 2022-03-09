@@ -147,11 +147,15 @@ function subscribeToTrxProviderChanges(app, eth, globEthereum) {
 
 function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
   let urlParams = new URLSearchParams(document.location.search.substring(1));
+  console.log('sub1')
   if (urlParams.get('account')) {
     return showAccount(app, eth, urlParams.get('account'));
   }
+  console.log('sub2')
   app.ports.tryConnect.subscribe(async (showProvider) => {
+    console.log('sub3')
     if (shouldAutoConnect(globEthereum)) {
+      console.log('sub4')
       // We have something we think is a Web3-only browser, e.g. imToken,
       // so let's just force a connection.
       let { networkId, account, ethereum } = await connectWeb3(eth, globEthereum, false, true);
