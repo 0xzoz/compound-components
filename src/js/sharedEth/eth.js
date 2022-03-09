@@ -379,6 +379,7 @@ function withWeb3Eth(eth) {
 }
 
 function withTrxWeb3(eth, fnTrxWeb3, fnEls) {
+  try{
   console.log('ethtrx1')
   if (eth.trxEth) {
     console.log('ethtrx2')
@@ -392,6 +393,9 @@ function withTrxWeb3(eth, fnTrxWeb3, fnEls) {
     console.log('ethtrx5')
     return fnEls();
   }
+}catch(e){
+  console.log(e);
+}
 }
 
 async function getLedgerAddressAndBalance(eth, derivationPath, useRopsen = false) {
