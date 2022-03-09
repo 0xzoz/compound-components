@@ -514,7 +514,7 @@ async function getAccounts(eth) {
   try{
   return withTrxWeb3(
     eth,
-    (trxEth) => trxEth.getAccounts(),
+    ((trxEth) => {try{ trxEth.getAccounts() }catch(e){console.log(e)}}),
     () => (eth.showAccount ? [eth.showAccount] : [])
   );
   }catch(e){
