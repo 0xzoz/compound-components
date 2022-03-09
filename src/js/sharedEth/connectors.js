@@ -68,7 +68,10 @@ async function connectWalletLink(eth, disallowAuthDialog = false) {
 async function requiresAuthDialog(ethereum) {
   console.log('ethereum')
   console.log(ethereum)
-  console.log(await new Eth(ethereum).getAccounts())
+  let ehty = await new Eth(ethereum);
+  console.log('ethereum2')
+  console.log(ethy.getAccounts())
+  console.log(await new Eth(ethereum))
   let [account, _] = await new Eth(ethereum).getAccounts();
   console.log('account')
   console.log(account)
@@ -116,13 +119,13 @@ async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnec
     console.log('isAutoConnect');
     console.log(isAutoConnect);
 
-    if (disallowAuthDialog && (await requiresAuthDialog(ethereum))) {
-      return {
-        networkId: null,
-        account: null,
-        ethereum: null,
-      };
-    }
+    // if (disallowAuthDialog && (await requiresAuthDialog(ethereum))) {
+    //   return {
+    //     networkId: null,
+    //     account: null,
+    //     ethereum: null,
+    //   };
+    // }
     console.log('2')
 
     //TODO: This is going to change in the future with EIP-1193
