@@ -92,7 +92,7 @@ async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConn
   }
 }
 
-async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoConnect = true) {
+async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
   console.log('connecting tally')
   if (ethereum && ethereum.isTally) {
     console.log('connecting tally')
@@ -137,16 +137,22 @@ async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnec
 
     setNewTrxProvider(eth, trxProvider);
     console.log('5')
-    
+
     let [account, _] = await getAccounts(eth);
     console.log('6')
 
     let networkIdStr = await getNetworkId(eth);
+    console.log(networkIdStr)
     let networkId = parseInt(networkIdStr);
+    console.log(networkId)
     if (networkId === NaN) {
       networkId = null;
     }
     console.log('7')
+    console.log(networkId)
+    console.log(account)
+    console.log(ethereum)
+
 
     return { networkId, account, ethereum };
   
