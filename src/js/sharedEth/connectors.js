@@ -66,17 +66,17 @@ async function connectWalletLink(eth, disallowAuthDialog = false) {
 }
 
 async function requiresAuthDialog(ethereum) {
-  console.log('ethereum')
-  console.log(ethereum)
-  let ehty = await new Eth(ethereum);
-  console.log('ethereum2')
-  console.log(ethy.getAccounts())
-  console.log(await new Eth(ethereum))
+  try{
   let [account, _] = await new Eth(ethereum).getAccounts();
-  console.log('account')
-  console.log(account)
+
 
   return !account;
+
+  }catch(e){
+    console.log(e);
+    return true;
+
+  }
 }
 
 async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
