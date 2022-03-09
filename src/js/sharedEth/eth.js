@@ -510,7 +510,7 @@ async function getBlockNumber(eth) {
 }
 
 async function getAccounts(eth) {
-  
+    console.log('getAccs')
   try{
   return withTrxWeb3(
     eth,
@@ -518,7 +518,7 @@ async function getAccounts(eth) {
     () => (eth.showAccount ? [eth.showAccount] : [])
   );
   }catch(e){
-
+    console.log(e)
     return false;
   }
 }

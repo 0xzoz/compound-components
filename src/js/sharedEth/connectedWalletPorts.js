@@ -151,7 +151,6 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
     return showAccount(app, eth, urlParams.get('account'));
   }
   app.ports.tryConnect.subscribe(async (showProvider) => {
-    try{
     if (shouldAutoConnect(globEthereum)) {
       // We have something we think is a Web3-only browser, e.g. imToken,
       // so let's just force a connection.
@@ -186,9 +185,6 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
         }
       }
     }
-  }catch(e){
-    console.log(e);
-  }
   });
 
   // port retrieveLedgerAccounts : { derivationPaths : List String, ledgerConnectRopsten : Bool } -> Cmd msg
