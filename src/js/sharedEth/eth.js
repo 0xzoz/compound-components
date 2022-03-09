@@ -512,13 +512,15 @@ async function getBlockNumber(eth) {
 async function getAccounts(eth) {
   
   try{
-  return withTrxWeb3(
+
+  let trxWeb3 = withTrxWeb3(
     eth,
-    (trxEth) => trxEth.getAccounts().catch(e => {
-      console.log(e);
-  }),
+    (trxEth) => trxEth.getAccounts(),
     () => (eth.showAccount ? [eth.showAccount] : [])
-  );
+  )
+
+  return trxWeb3;
+  
   }catch(e){
     console.log(e)
     return false;
