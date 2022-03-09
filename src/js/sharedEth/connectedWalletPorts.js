@@ -187,7 +187,7 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       }
     }
   }catch(e){
-    console.log(e;)
+    console.log(e);
   }
   });
 
