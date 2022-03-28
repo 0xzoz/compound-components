@@ -522,6 +522,7 @@ async function getAccounts(eth) {
     () => (eth.showAccount ? [eth.showAccount] : [])
   )
   console.log('get accounts2')
+  console.log(accs);
 
   return accs;
 
