@@ -174,14 +174,14 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       console.log('provide change')
       console.log(providerTypeId(globEthereum))
       console.log('how')
-      let providerType = Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
+      let providerType = providerTypeId(globEthereum) //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
       let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', false);
 
       if (!connected) {
         // Otherwise, let's connect to mainnet to show numbers
         console.log('not connected')
         console.log(eth)
-        //establishConnection(app, eth, 1, null, null, PROVIDER_TYPE_NONE);
+        establishConnection(app, eth, 1, null, null, PROVIDER_TYPE_NONE);
 
         if (!storage('skipConnectModal').get(false) && showProvider) {
           // Popup dialog
