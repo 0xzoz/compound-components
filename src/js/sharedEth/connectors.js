@@ -72,12 +72,12 @@ async function requiresAuthDialog(ethereum) {
 
   }catch(e){
     console.log(e);
-    return false;
+    return true;
 
   }
 }
 
-async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConnect = true) {
+async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
   console.log('connecting mm')
   if (ethereum && !ethereum.isTally ) {
     console.log('returning mm')
@@ -92,7 +92,7 @@ async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConn
   }
 }
 
-async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoConnect = true) {
+async function connectTally(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
   console.log('connecting tally')
   if (ethereum && ethereum.isTally) {
     console.log('connecting tally')
