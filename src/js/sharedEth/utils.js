@@ -69,7 +69,7 @@ function providerTypeId(provider) {
   } else if (provider.isImToken) {
     return 3;
   }else if (provider.isTally) {
-    return 5;
+    return 3;
   } else if (provider.isMetaMask) {
     if (provider.constructor.name === 'InpageBridge') {
       return 3;
