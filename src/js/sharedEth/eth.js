@@ -529,7 +529,7 @@ async function getAccounts(eth) {
   }catch(e){
     console.log('error in getAccounts')
     console.log(e)
-    return [];
+    
   }
 }
 
