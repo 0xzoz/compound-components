@@ -991,6 +991,9 @@ providerTypeFromId id =
         4 ->
             Just WalletConnect
 
+        5 ->
+            Just Tally
+
         _ ->
             Nothing
 
