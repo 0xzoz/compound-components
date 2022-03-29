@@ -112,49 +112,49 @@ async function connectWeb3Helper(eth, ethereum, disallowAuthDialog, isAutoConnec
 
     let trxProvider = ethereum;
     console.log('1')
-    // console.log('disallowAuthDialog');
-    // console.log(disallowAuthDialog);
-    // console.log('isAutoConnect');
-    // console.log(isAutoConnect);
+    console.log('disallowAuthDialog');
+    console.log(disallowAuthDialog);
+    console.log('isAutoConnect');
+    console.log(isAutoConnect);
 
-    // if (disallowAuthDialog && (await requiresAuthDialog(ethereum))) {
-    //   return {
-    //     networkId: null,
-    //     account: null,
-    //     ethereum: null,
-    //   };
-    // }
-    // console.log('2')
+    if (disallowAuthDialog && (await requiresAuthDialog(ethereum))) {
+      return {
+        networkId: null,
+        account: null,
+        ethereum: null,
+      };
+    }
+    console.log('2')
 
-    // //TODO: This is going to change in the future with EIP-1193
-    // if (!isAutoConnect) {
-    //   console.log('3')
+    //TODO: This is going to change in the future with EIP-1193
+    if (!isAutoConnect) {
+      console.log('3')
 
-    //   ethereum.request({ method: 'eth_requestAccounts' });
+      ethereum.request({ method: 'eth_requestAccounts' });
 
-    // }
-    // console.log('4')
+    }
+    console.log('4')
 
-    // setNewTrxProvider(eth, trxProvider);
-    // console.log('5')
+    setNewTrxProvider(eth, trxProvider);
+    console.log('5')
 
-    // let [account, _] = await getAccounts(eth);
-    // console.log('6')
+    let [account, _] = await getAccounts(eth);
+    console.log('6')
 
-    // let networkIdStr = await getNetworkId(eth);
-    // console.log(networkIdStr)
-    // let networkId = parseInt(networkIdStr);
-    // console.log(networkId)
-    // if (networkId === NaN) {
-    //   networkId = null;
-    // }
-    // console.log('7')
-    // console.log(networkId)
-    // console.log(account)
-    // console.log(ethereum)
+    let networkIdStr = await getNetworkId(eth);
+    console.log(networkIdStr)
+    let networkId = parseInt(networkIdStr);
+    console.log(networkId)
+    if (networkId === NaN) {
+      networkId = null;
+    }
+    console.log('7')
+    console.log(networkId)
+    console.log(account)
+    console.log(ethereum)
 
 
-    // return { networkId, account, ethereum };
+    return { networkId, account, ethereum };
   
 }
 
