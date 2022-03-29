@@ -77,7 +77,7 @@ async function requiresAuthDialog(ethereum) {
   }
 }
 
-async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) {
+async function connectWeb3(eth, ethereum, disallowAuthDialog = false, isAutoConnect = false) { 
   console.log('connecting mm')
   if (ethereum && !ethereum.isTally ) {
     console.log('returning mm')

@@ -99,7 +99,7 @@ async function connectToTrxProvider(
       break;
     default:
       ({ networkId, account, ethereum } = await disconnect(eth));
-      establishWithoutAccount = true;
+      establishWithoutAccount = false;
       break;
   }
 
@@ -175,7 +175,7 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
       console.log(providerTypeId(globEthereum))
       console.log('how')
       let providerType = providerTypeId(globEthereum) //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
-      let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', true);
+      let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', false);
 
       // if (!connected) {
       //   // Otherwise, let's connect to mainnet to show numbers
