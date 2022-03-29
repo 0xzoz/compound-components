@@ -154,41 +154,41 @@ function subscribeToTryConnect(app, eth, globEthereum, defaultNetworkId) {
   console.log('sub2')
   app.ports.tryConnect.subscribe(async (showProvider) => {
     console.log('sub3')
-    // if (shouldAutoConnect(globEthereum)) {
-    //   console.log('sub4')
-    //   // We have something we think is a Web3-only browser, e.g. imToken,
-    //   // so let's just force a connection.
-    //   let { networkId, account, ethereum } = await connectWeb3(eth, globEthereum, false, true);
-    //   console.log('should be connected')
-    //   console.log(eth)
-    //   await establishConnection(app, eth, networkId, account, ethereum, PROVIDER_TYPE_WEB3);
-    // } else {
-    //   // If we are not in a Web3-only browser, then we'll see if there's
-    //   // a safe network we can connect to (e.g. Coinbase Mobile or MetaMask).
+    if (shouldAutoConnect(globEthereum)) {
+      console.log('sub4')
+      // We have something we think is a Web3-only browser, e.g. imToken,
+      // so let's just force a connection.
+      let { networkId, account, ethereum } = await connectWeb3(eth, globEthereum, false, true);
+      console.log('should be connected')
+      console.log(eth)
+      await establishConnection(app, eth, networkId, account, ethereum, PROVIDER_TYPE_WEB3);
+    } else {
+      // If we are not in a Web3-only browser, then we'll see if there's
+      // a safe network we can connect to (e.g. Coinbase Mobile or MetaMask).
 
-    //   // If it's already been authorized, we'll connect, otherwise, we'll
-    //   // sit back and pop a modal.
+      // If it's already been authorized, we'll connect, otherwise, we'll
+      // sit back and pop a modal.
 
-    //   // We'll try to set to the user's last chosen provider, otherwise
-    //   // defaulting to Web3.
-    //   console.log('provide change')
-    //   console.log(providerTypeId(globEthereum))
-    //   console.log('how')
-    //   let providerType = providerTypeId(globEthereum) //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
-    //   let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', true);
+      // We'll try to set to the user's last chosen provider, otherwise
+      // defaulting to Web3.
+      console.log('provide change')
+      console.log(providerTypeId(globEthereum))
+      console.log('how')
+      let providerType = providerTypeId(globEthereum) //Number(storage('chosenProvider').get(PROVIDER_TYPE_WEB3));
+      let connected = await connectToTrxProvider(app, eth, globEthereum, providerType, '', true);
 
-    //   if (!connected) {
-    //     // Otherwise, let's connect to mainnet to show numbers
-    //     console.log('not connected')
-    //     console.log(eth)
-    //     establishConnection(app, eth, 1, null, null, PROVIDER_TYPE_NONE);
+      // if (!connected) {
+      //   // Otherwise, let's connect to mainnet to show numbers
+      //   console.log('not connected')
+      //   console.log(eth)
+      //   establishConnection(app, eth, 1, null, null, PROVIDER_TYPE_NONE);
 
-    //     if (!storage('skipConnectModal').get(false) && showProvider) {
-    //       // Popup dialog
-    //       app.ports.chooseProvider.send(true);
-    //     }
-    //   }
-    // }
+      //   if (!storage('skipConnectModal').get(false) && showProvider) {
+      //     // Popup dialog
+      //     app.ports.chooseProvider.send(true);
+      //   }
+      // }
+    }
   });
 
   // port retrieveLedgerAccounts : { derivationPaths : List String, ledgerConnectRopsten : Bool } -> Cmd msg
