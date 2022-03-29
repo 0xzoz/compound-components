@@ -114,7 +114,7 @@ async function connectToTrxProvider(
     }
     console.log('in provider' )
     console.log(eth )
-    establishConnection(app, eth, networkId, account, ethereum, newProviderType);
+    //establishConnection(app, eth, networkId, account, ethereum, newProviderType);
 
     return true;
   } else {
